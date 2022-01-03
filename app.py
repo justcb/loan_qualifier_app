@@ -104,26 +104,29 @@ def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_valu
 
 
 def save_qualifying_loans(qualifying_loan_list):
-    """Saves the qualifying loans to a CSV file.
+    """Prompts the user to confirm a save.  Then, saves the qualifying loans to a CSV file.
 
     Args:
-        qualifying_loans (list of lists): The qualifying bank loans.
+        qualifying_loan_list (list of lists): The qualifying bank loans.
     """
     # @TODO: Complete the usability dialog for savings the CSV Files.
 
-
-    #sets the header row of the output CSV file here only loan name
-    header = ["Loan Name"]
+    confirm_save = questionary.confirm("Would you like to save this loan list?").ask()
     
-    # sets the path
-    output_path = Path("./data/qualifying_loans.csv")
-  
-    #writes each row to csvfile row
-    with open(output_path, 'w') as csvfile:
-        csvwriter = csv.writer(csvfile)
-        csvwriter.writerow(header)
-        for row in qualifying_loan_list:
-            csvwriter.writerow([row])
+    if confirm_save:
+        header = ["Loan Name"]        #sets the header row of the output CSV file here only loan name
+        user_save_path = questionary.text("Where should the file be saved?").ask()
+        output_path = Path(user_save_path)     # sets the path
+        with open(output_path, 'w') as csvfile:      #writes each row to csvfile row
+            csvwriter = csv.writer(csvfile)
+            csvwriter.writerow(header)
+            for row in qualifying_loan_list:
+                csvwriter.writerow([row])
+        print("Thank you for using the Loan Qualifier App.")
+        sys.exit()
+    else:
+        print("Thank you for using the Loan Qualifier App.")
+        sys.exit()
 
 
 def run():
