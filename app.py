@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Loan Qualifier Application.
 
-This is a command line application to match applicants with qualifying loans.
+This is a command line application to match applicants with qualifying loans and save the list.
 
 Example:
     $ python app.py
@@ -9,10 +9,10 @@ Example:
 import sys
 import fire
 import questionary
-import csv
 from pathlib import Path
 
 from qualifier.utils.fileio import load_csv
+from qualifier.utils.fileio import save_qualifying_loans
 
 from qualifier.utils.calculators import (
     calculate_monthly_debt_ratio,
@@ -102,33 +102,6 @@ def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_valu
 
     return bank_data_filtered
 
-
-def save_qualifying_loans(qualifying_loan_list):
-    """Prompts the user to confirm a save.  Then, saves the qualifying loans to a CSV file.
-
-    Args:
-        qualifying_loan_list (list of lists): The qualifying bank loans.
-    """
-    # @TODO: Complete the usability dialog for savings the CSV Files.
-
-    confirm_save = questionary.confirm("Would you like to save this loan list?").ask()
-    
-    if confirm_save:
-        header = ["Loan Name"]        #sets the header row of the output CSV file here only loan name
-        user_save_path = questionary.text("Where should the file be saved?").ask()
-        output_path = Path(user_save_path)     # sets the path
-        with open(output_path, 'w') as csvfile:      #writes each row to csvfile row
-            csvwriter = csv.writer(csvfile)
-            csvwriter.writerow(header)
-            for row in qualifying_loan_list:
-                csvwriter.writerow([row])
-        print("Thank you for using the Loan Qualifier App.")
-        sys.exit()
-    else:
-        print("Thank you for using the Loan Qualifier App.")
-        sys.exit()
-
-
 def run():
     """The main function for running the script."""
 
@@ -142,12 +115,15 @@ def run():
     qualifying_loans = find_qualifying_loans(
         bank_data, credit_score, debt, income, loan_amount, home_value
     )
+
+    # Create the list with loans
     qualifying_loan_list = []
 
     for loan in qualifying_loans:
         loan_name = loan[0]
         qualifying_loan_list.append(loan_name)
 
+    # Pass qualifying loans to the save dialog function
     save_qualifying_loans(qualifying_loan_list)
 
 if __name__ == "__main__":
