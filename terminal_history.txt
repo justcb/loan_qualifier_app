@@ -1,0 +1,50 @@
+ 1012  git push -u origin main
+ 1013  git add --all
+ 1014  git commit -m "CSV Writer to fileio.py"
+ 1015  git pull origin main
+ 1016  git push -u origin main
+ 1017  git pull origin main
+ 1018  ls
+ 1019  ls --all
+ 1020  ls -all
+ 1021  rm -r .git
+ 1022  y
+ 1023  ls
+ 1024  ls -all
+ 1025  rm .gitignore
+ 1026  ls
+ 1027  ls -all
+ 1028  rm .DS_Store
+ 1029  ls
+ 1030  clear
+ 1031  git init
+ 1032  git add -all
+ 1033  git add --all
+ 1034  git commit -m "Initial Files"
+ 1035  git remote add origin git@github.com:justcb/loan_qualifier_app.git
+ 1036  git pull origin main
+ 1037  git push -u origin main
+ 1038  git add --all
+ 1039  git commit -m "Initial Files"
+ 1040  git pull origin main
+ 1041  git pull origin main --allow-unrelated-histories
+ 1042  git push -u origin main
+ 1043  git add --all
+ 1044  git commit -m "csv save complete"
+ 1045  git pull origin main
+ 1046  git push -u origin main
+ 1047  git add --all
+ 1048  git commit "CLI UI Updated to Verify Save and accept file path."
+ 1049  git commit -m "CLI UI Updated to Verify Save and accept file path."
+ 1050  git pull origin main
+ 1051  git push -u origin main
+ 1052  git add --all
+ 1053  git commit -m "Update UI and comments"
+ 1054  git pull origin main
+ 1055  git push -u origin main
+ 1056  git status
+ 1057  git add --all
+ 1058  git commit -m "Update README.md"
+ 1059  git pull origin main
+ 1060  git push -u origin main
+ 1061  history 50 > terminal_history.txt
