@@ -34,7 +34,15 @@ To run LQ-CLI, in the root directory of the loan_qualifier_app, type
 
 To use the app:
 
-1.  When prompted, enter the directory for the daily_rate_sheet.csv by typing `./data/daily_rate_sheet.csv`.
+1.  When prompted, enter the directory for the daily_rate_sheet.csv by typing `./data/daily_rate_sheet.csv`. 
+
+
+![](./data/1.png)
+
+
+![](./data/2.png)
+
+
 2.  You will then be prompted for the following information:
     A.  Credit Score
     B.  Current Monthly Debt
@@ -42,18 +50,35 @@ To use the app:
     D.  Total Monthly Income
     E.  Desired Loan Amount
     F.  Home Value
+    
+    
+![](./data/3.png)
+    
+    
 3.  After the data is entered, LQ-CLI will filter the loans based on the following filters:
     A.  Maximum Loan Size
     B.  Credit Score
     C.  Monthly Debt to Income 
     D.  Loan to Value
+
+
+
+
+
 4.  You see the following results:
     A.  Debt to Income Ratio
     B.  Loan to Value Ratio
     C.  The number of qualifying loans
     D.  A list of the qualifying loan names
+
+
+![](./data/4.png)
+
+
 5.  You will be prompted to confirm whether you would like to save the loan list.
 6.  If you do, you will be prompted to enter the path and file name for your list.
+
+![](./data/5.png)
 
 ---
 
